@@ -30,10 +30,16 @@ RUN git clone -b release https://github.com/roswell/roswell.git \
 RUN git clone --depth 1 https://github.com/acl2/acl2.git /root/acl2
 #RUN git clone --depth 1 -b 8.2 git://github.com/acl2-devel/acl2-devel.git /root/acl2
 
-COPY build-acl2s.sh /root/build-acl2s.sh
 COPY acl2s-image.lisp /root/acl2s-image.lisp
 
-RUN /root/build-acl2s.sh \
+ARG ACL2_BUILD_OPTS=""
+ARG ACL2_CERTIFY_OPTS="-j 4"
+
+RUN cd /root/acl2 \
+    && make LISP="ros run" $ACL2_BUILD_OPTS \
+    && cd books \
+    && make acl2s ACL2=/root/acl2/saved_acl2 $ACL2_CERTIFY_OPTS \
+    && make acl2s ACL2=/root/acl2/saved_acl2 $ACL2_CERTIFY_OPTS \
     && cd /root \
     && /root/acl2/saved_acl2 < /root/acl2s-image.lisp
 
