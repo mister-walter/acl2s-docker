@@ -36,7 +36,7 @@ COPY acl2s-image.lisp /root/acl2s-image.lisp
 
 RUN /root/build-acl2s.sh
 
-RUN cd /root
-RUN /root/acl2/saved_acl2 < /root/acl2s-image.lisp
+RUN cd /root \
+    && /root/acl2/saved_acl2 < /root/acl2s-image.lisp
 
 CMD ["/root/acl2s"]
