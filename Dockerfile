@@ -39,7 +39,6 @@ RUN cd /root/acl2 \
     && make LISP="ros run" $ACL2_BUILD_OPTS \
     && cd books \
     && make acl2s ACL2=/root/acl2/saved_acl2 $ACL2_CERTIFY_OPTS \
-    && make acl2s ACL2=/root/acl2/saved_acl2 $ACL2_CERTIFY_OPTS \
     && cd /root \
     && /root/acl2/saved_acl2 < /root/acl2s-image.lisp
 
