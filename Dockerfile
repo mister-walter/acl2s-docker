@@ -27,6 +27,8 @@ RUN git clone -b release https://github.com/roswell/roswell.git \
     && cd / && rm -rf /tmp/workdir \
     && ros setup
 
+ARG ACL2_REPO_LATEST_COMMIT=0
+
 RUN git clone --depth 1 https://github.com/acl2/acl2.git /root/acl2
 #RUN git clone --depth 1 -b 8.2 git://github.com/acl2-devel/acl2-devel.git /root/acl2
 
