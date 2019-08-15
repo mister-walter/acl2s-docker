@@ -1,9 +1,9 @@
 all: latest
-.PHONY: all latest
+.PHONY: all build push
 
-latest:
-	docker build . -t acl2s:latest --build-arg ACL2_REPO_LATEST_COMMIT=$(shell curl --silent https://api.github.com/repos/acl2/acl2/commits/master | jq -r .sha)
+build:
+	docker build . -t acl2s:latest
 
-push-latest: latest
+push:
 	docker image tag acl2s:latest atwalter/acl2s:latest
 	docker push atwalter/acl2s:latest
