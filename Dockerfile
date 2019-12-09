@@ -25,6 +25,6 @@ RUN apt-get remove -y \
     autoconf \
     && apt-get autoremove -y
 
-ENV PATH="/opt/acl2s/bin/acl2s:${PATH}"
+ENV PATH="/opt/acl2s/bin:${PATH}"
 
 CMD ["/root/acl2s"]
