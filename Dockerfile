@@ -27,4 +27,4 @@ RUN apt-get remove -y \
 
 ENV PATH="/opt/acl2s/bin:${PATH}"
 
-CMD ["/root/acl2s"]
+CMD ["/root/acl2s/acl2s"]
