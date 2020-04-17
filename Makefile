@@ -1,4 +1,4 @@
-all: latest
+all: build
 .PHONY: all build push
 
 build:
