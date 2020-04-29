@@ -1,4 +1,4 @@
-FROM atwalter/acl2:latest
+FROM atwalter/acl2:8.3
 
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
