@@ -1,4 +1,5 @@
 FROM atwalter/acl2:latest
+LABEL org.opencontainers.image.source https://github.com/mister-walter/acl2s-docker
 
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
@@ -20,11 +21,6 @@ RUN cd /root/acl2/books \
     && acl2 < acl2s-image.lisp \
     && mkdir -p /opt/acl2s/bin \
     && ln -s /root/acl2s/acl2s /opt/acl2s/bin/acl2s
-
-RUN apt-get remove -y \
-    automake \
-    autoconf \
-    && apt-get autoremove -y
 
 ENV PATH="/opt/acl2s/bin:${PATH}"
 
