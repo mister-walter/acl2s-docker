@@ -15,7 +15,7 @@ ARG ACL2_BUILD_OPTS=""
 ARG ACL2_CERTIFY_OPTS="-j 4"
 ENV CERT_PL_RM_OUTFILES="1"
 
-RUN cd /root/acl2/books \
+RUN umask 002 && cd /root/acl2/books \
     && make acl2s $ACL2_CERTIFY_OPTS \
     && cd /root/acl2s \
     && acl2 < acl2s-image.lisp \
