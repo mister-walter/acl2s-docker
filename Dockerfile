@@ -1,5 +1,6 @@
 FROM atwalter/acl2:latest
-LABEL org.opencontainers.image.source https://github.com/mister-walter/acl2s-docker
+#FROM ghcr.io/mister-walter/acl2:latest
+LABEL org.opencontainers.image.source="https://github.com/mister-walter/acl2s-docker"
 
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
